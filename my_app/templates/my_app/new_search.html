@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% load static %}
+
+
+
+
+<h2 class = "container center" >
+    {{ search | title }}
+</h2>
+
+{% comment %} 
+
+post.0 = post_title
+post.1 = post_url
+post.2 = post_price
+post.3 = post_image
+
+{% endcomment %}
+
+<div class = 'row'>
+{% for post in new_post %}
+  <div class="col s4">
+    <div class="card">
+      <div class="card-image" >
+        <img src="{{ post.3 }}" style = " object-fit: contain ; ">
+        <span class="card-title"> </span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <p> {{ post.0 }} </p>
+      </div>
+      <div class="card-action">
+        <a href="{{ post.1 }}" > View Listing : {{ post.2 }} </a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+
+
+
+
+{% endblock content%}
